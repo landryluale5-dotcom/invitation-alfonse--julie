@@ -1,74 +1,124 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitation – Alphonse & Julie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitation de mariage – Alphonse & Julie</title>
 
-  <style>
+<style>
     body {
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: url("A_wedding_invitation_digital_design_displays_Alpho.png") center/cover no-repeat;
-      height: 100vh;
-      color: white;
-      text-align: center;
-      backdrop-filter: brightness(0.85);
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(180deg, #fbe9f1, #f7dce7);
+        text-align: center;
+        color: #333;
     }
+
+    /* Animation fade-in */
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Animation zoom pour la photo */
+    @keyframes zoomFade {
+        0% { opacity: 0; transform: scale(1.05); }
+        100% { opacity: 1; transform: scale(1); }
+    }
+
+    /* Animation douce bouton */
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); }
+    }
+
     .container {
-      padding-top: 50px;
-      background: rgba(0,0,0,0.45);
-      height: 100vh;
+        max-width: 520px;
+        margin: auto;
+        background: #ffffff;
+        border-radius: 25px;
+        padding-bottom: 25px;
+        margin-top: 25px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        animation: fadeIn 1.2s ease-out;
     }
+
+    .header-img {
+        width: 100%;
+        border-radius: 25px 25px 0 0;
+        animation: zoomFade 1.5s ease-out;
+    }
+
     h1 {
-      font-size: 35px;
-      margin-bottom: -10px;
+        font-size: 32px;
+        font-weight: 700;
+        color: #cb5c82;
+        margin-top: 15px;
+        margin-bottom: 0;
+        animation: fadeIn 1.5s ease-out;
     }
-    .names {
-      font-size: 45px;
-      font-weight: bold;
-      color: #ffb6c1;
+
+    h2 {
+        font-size: 19px;
+        font-weight: 400;
+        margin-top: 5px;
+        animation: fadeIn 1.8s ease-out;
     }
-    .date {
-      margin-top: 20px;
-      font-size: 22px;
+
+    .info {
+        font-size: 17px;
+        margin: 10px 0 20px 0;
+        line-height: 1.5;
+        animation: fadeIn 2s ease-out;
     }
-    .btn {
-      display: block;
-      margin: 25px auto;
-      text-decoration: none;
-      background: #ffb6c1;
-      padding: 15px 25px;
-      border-radius: 30px;
-      width: 80%;
-      max-width: 250px;
-      font-weight: bold;
-      color: black;
-      font-size: 18px;
+
+    .button {
+        display: block;
+        width: 80%;
+        margin: 15px auto;
+        padding: 15px;
+        font-size: 17px;
+        text-decoration: none;
+        background: #f8b6c8;
+        color: #000;
+        border-radius: 35px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        animation: fadeIn 2.3s ease-out, pulse 3.5s infinite ease-in-out;
     }
-  </style>
+
+    .button:hover {
+        background: #eaa4ba;
+    }
+
+</style>
 </head>
 
 <body>
-  <div class="container">
 
-    <h1>Invitation de mariage</h1>
+<div class="container">
 
-    <div class="names">Alphonse & Julie</div>
+    <!-- PHOTO ANIMÉE -->
+   <img src="file_000000004898722fb89cf034ab194f96.png" class="header-img"> 
 
-    <div class="date">📅 Samedi 15 décembre 2025 – 17h00</div>
+    <h1>Alphonse & Julie</h1>
+    <h2>Invitation de mariage</h2>
 
-    <div class="date">📍 Kolwezi, salle de fête Kampia Boma, Jolie cité</div>
+    <p class="info">
+        📅 <b>Samedi 15 décembre 2025 – 17h00</b><br>
+        📍 Kolwezi, salle de fête Kampia Boma, Jolie cité
+    </p>
 
-    <a class="btn" href="https://maps.app.goo.gl/eT9MoaXx2i7gk5Vn8" target="_blank">
-      📍 Voir le lieu sur Google Maps
+    <a href="https://maps.google.com" class="button">
+        📍 Voir le lieu sur Google Maps
     </a>
 
-    <a class="btn" href="https://www.youtube.com/watch?v=jfKfPfyJRdk" target="_blank">
-      🎵 Écouter la musique de l’invitation
+    <a href="musique.mp3" class="button">
+        🎵 Écouter la musique de l’invitation
     </a>
 
-  </div>
+</div>
+
 </body>
 </html>
