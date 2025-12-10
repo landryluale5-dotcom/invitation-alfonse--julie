@@ -1,196 +1,91 @@
-      <!DOCTYPE html>
+                 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitation de mariage - Alphonse & Julie</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Invitation de mariage – Alphonse & Julie</title>
 
-    <!-- ***** STYLE ***** -->
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(to bottom, #f8e1e7, #ffffff);
-            text-align: center;
-            color: #333;
-            transition: background 0.5s, color 0.5s;
-        }
+<style>
+    body {
+        margin: 0;
+        font-family: 'Trebuchet MS', sans-serif;
+        background: #f7e9ec;
+        text-align: center;
+        color: #333;
+    }
 
-        /* MODE NUIT / GOLD */
-        .gold {
-            background: linear-gradient(to bottom, #2b1b00, #000000);
-            color: #f7dca0;
-        }
-        .gold .button {
-            background: #b8860b !important;
-        }
+    .container {
+        max-width: 520px;
+        margin: auto;
+        background: #ffffff;
+        border-radius: 22px;
+        padding: 0 0 20px 0;
+        margin-top: 20px;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.12);
+    }
 
-        /* IMAGE ANIMÉE */
-        .header-image {
-            width: 100%;
-            height: auto;
-            border-bottom-left-radius: 30px;
-            border-bottom-right-radius: 30px;
-            opacity: 0;
-            transform: scale(1.15);
-            animation: fadeZoom 2.5s ease forwards;
-        }
-        @keyframes fadeZoom {
-            0% { opacity: 0; transform: scale(1.15); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+    .header-img {
+        width: 100%;
+        border-radius: 22px 22px 0 0;
+    }
 
-        /* ANIMATIONS TEXTES */
-        .fade {
-            opacity: 0;
-            animation: fadeText 1.5s ease forwards;
-        }
-        @keyframes fadeText {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    h1 {
+        font-size: 30px;
+        color: #c65f7b;
+        margin-bottom: 5px;
+        font-weight: 700;
+    }
 
-        h1 { font-size: 32px; color: #b94655; margin-top: 10px; }
-        h2 { font-size: 22px; margin-top: -10px; color: #555; }
+    h2 {
+        font-size: 20px;
+        margin-top: 0;
+        font-weight: 400;
+    }
 
-        .details {
-            font-size: 18px;
-            margin: 10px 0;
-            line-height: 1.6;
-        }
+    .info {
+        font-size: 17px;
+        margin: 10px 0;
+        line-height: 1.5;
+    }
 
-        /* BOUTON */
-        .button {
-            display: block;
-            width: 80%;
-            margin: 15px auto;
-            padding: 15px;
-            background: #f7a6b3;
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-            font-size: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .button:hover {
-            transform: scale(1.06);
-        }
+    .button {
+        display: block;
+        width: 80%;
+        margin: 12px auto;
+        padding: 15px;
+        font-size: 17px;
+        text-decoration: none;
+        background: #f8b6c8;
+        color: #000;
+        border-radius: 30px;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        font-weight: bold;
+    }
 
-        /* COMPTEUR */
-        #countdown {
-            font-size: 22px;
-            margin-top: 20px;
-            font-weight: bold;
-            color: #b94655;
-        }
+    .button:hover {
+        background: #e8a1b4;
+    }
+</style>
 
-        .footer {
-            margin-top: 40px;
-            font-size: 14px;
-            color: #777;
-            padding-bottom: 30px;
-        }
-
-        /* SWITCH MODE GOLD */
-        #toggle-mode {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px;
-            background: black;
-            color: white;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 999;
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
-        }
-    </style>
 </head>
-
 <body>
 
-    <!-- MUSIQUE AUTOMATIQUE -->
-    <audio id="music" autoplay loop>
-        <source src="musique.mp3" type="audio/mpeg">
-    </audio>
+<div class="container">
 
-    <!-- MESSAGE VOCAL D’ACCUEIL -->
-    <audio id="voix">
-        <source src="voix.mp3" type="audio/mpeg">
-    </audio>
+    <img src="image.jpg" class="header-img">
 
-    <script>
-        // Lire le message vocal 2 secondes après chargement
-        setTimeout(() => {
-            document.getElementById("voix").play();
-        }, 2000);
-    </script>
+    <h1>Alphonse & Julie</h1>
+    <h2>Invitation de mariage</h2>
 
-    <!-- IMAGE PRINCIPALE ANIMÉE -->
-    <img src="A_wedding_invitation_digital_photograph_features_a.png" class="header-image">
-
-    <!-- TITRE -->
-    <h1 class="fade" style="animation-delay:1s;">Alphonse & Julie</h1>
-    <h2 class="fade" style="animation-delay:1.3s;">Invitation de mariage</h2>
-
-    <!-- COMPTEUR -->
-    <p id="countdown" class="fade" style="animation-delay:1.6s;"></p>
-
-    <script>
-        // Compte à rebours
-        const eventDate = new Date("Dec 15, 2025 17:00:00").getTime();
-
-        setInterval(() => {
-            let now = new Date().getTime();
-            let diff = eventDate - now;
-
-            let days = Math.floor(diff / (1000*60*60*24));
-            let hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-            let minutes = Math.floor((diff%(1000*60*60))/ (1000*60));
-            let seconds = Math.floor((diff%(1000*60))/1000);
-
-            document.getElementById("countdown").innerHTML =
-                `⏳ Il reste ${days} jours ${hours}h ${minutes}m ${seconds}s`;
-
-        }, 1000);
-    </script>
-
-    <!-- DETAILS -->
-    <p class="details fade" style="animation-delay:1.9s;">
-        📅 Samedi 15 décembre 2025 – 17h00<br>
-        📍 Kolwezi, Salle de fête Kampia Boma, Jolie cité
+    <p class="info">
+        📅 <b>Samedi 15 décembre 2025 – 17h00</b><br>
+        📍 Kolwezi, salle de fête Kampia Boma, Jolie cité
     </p>
 
-    <!-- BOUTONS -->
-    <a class="button fade" style="animation-delay:2.1s;"
-       href="https://maps.app.goo.gl/" target="_blank">
-        📍 Voir le lieu sur Google Maps
-    </a>
+    <a href="https://maps.google.com" class="button">📍 Voir le lieu sur Google Maps</a>
+    <a href="musique.mp3" class="button">🎵 Écouter la musique de l’invitation</a>
 
-    <a class="button fade" style="animation-delay:2.3s;"
-       href="https://wa.me/243971085835?text=Bonjour%2C+je+confirme+ma+présence+au+mariage+d'Alphonse+et+Julie"
-       target="_blank">
-       💬 Confirmer ma présence (RSVP)
-    </a>
-
-    <!-- FOOTER -->
-    <p class="footer fade" style="animation-delay:2.6s;">
-        Merci de partager ce moment spécial avec nous ❤️
-    </p>
-
-    <!-- BOUTON MODE GOLD -->
-    <div id="toggle-mode">🌙</div>
-
-    <script>
-        const toggle = document.getElementById("toggle-mode");
-
-        toggle.onclick = () => {
-            document.body.classList.toggle("gold");
-            toggle.innerHTML = document.body.classList.contains("gold") ? "☀️" : "🌙";
-        };
-    </script>
+</div>
 
 </body>
-</html>            
+</html>             
